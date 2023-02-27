@@ -1,0 +1,252 @@
+.header {
+    margin-bottom: 115px;
+
+    &-logo {
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+        line-height: 23px;
+        font-weight: 400;
+        color: #fff;
+        text-decoration: none;
+        flex-shrink: 0;
+
+        &__img {
+            margin-right: 26px;
+        }
+
+        &__text {
+            max-width: 390px;
+        }
+    }
+
+}
+
+.main {
+    min-height: 100vh;
+    background: url(../img/main-bg.png) no-repeat center / cover;
+    position: relative;
+    z-index: 1;
+    padding-top: 40px;
+    padding-bottom: 90px;
+    color: #fff;
+
+    &__title {
+        font-size: 24px;
+        line-height: 28px;
+        font-weight: 300;
+        margin-bottom: 20px;
+        max-width: 480px;
+    }
+
+    &-quiz {
+        &_form {
+            max-width: 695px;
+            width: 100%;
+        }
+
+        &__title {
+            font-size: 40px;
+            line-height: 48px;
+            font-weight: 700;
+            margin-bottom: 35px;
+            max-width: 460px;
+        }
+
+        &__wrapper {
+            padding: 10px 15px;
+            border-radius: 10px;
+            background: linear-gradient(168.55deg, rgba(81, 81, 81, 0.2) -4.52%, rgba(81, 81, 81, 0.2) 112.85%);
+            backdrop-filter: blur(15.7416px);
+            display: inline-flex;
+            flex-wrap: wrap;
+            gap: 17px;
+        }
+
+        &__answer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 195px;
+            height: 105px;
+            background: linear-gradient(168.55deg, rgba(81, 81, 81, 0.2) -4.52%, rgba(81, 81, 81, 0.2) 112.85%);
+            backdrop-filter: blur(15.7416px);
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 24px;
+            line-height: 28px;
+            font-weight: 500;
+            transition: all 0.3s;
+
+            &:hover {
+                background-color: rgba(6, 26, 32, 0.5);
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        &__block {
+            display: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.6s;
+
+            &:last-child {
+                background: linear-gradient(168.55deg, rgba(66, 255, 0, 0.2) -4.52%, rgba(22, 86, 0, 0.2) 112.85%);
+                backdrop-filter: blur(15.7416px);
+                padding: 15px;
+                border-radius: 10px;
+            }
+
+            &.active {
+                display: inline-block;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        &Success {
+            background: linear-gradient(168.55deg, rgba(81, 81, 81, 0.2) -4.52%, rgba(81, 81, 81, 0.2) 112.85%);
+            backdrop-filter: blur(15.7416px);
+            border-radius: 10px;
+            padding: 20px;
+            padding-top: 25px;
+            max-width: 545px;
+
+            &__title {
+                font-size: 23px;
+                line-height: 27px;
+                font-weight: 500;
+            }
+
+            &__text {
+                font-size: 20px;
+                line-height: 23px;
+                font-weight: 400;
+                margin-top: 12px;
+                margin-bottom: 45px;
+            }
+
+            &__soc {
+                display: flex;
+                align-items: flex-start;
+            }
+
+            &__link {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 42px;
+                height: 42px;
+                border-radius: 100%;
+                background: linear-gradient(168.55deg, rgba(10, 17, 33, 0.06) -4.52%, rgba(22, 29, 50, 0) 112.85%);
+                backdrop-filter: blur(21px);
+                margin-right: 10px;
+                border: 1px solid rgba(255, 255, 255, 0.33);
+                transition: all 0.3s;
+
+                svg {
+                    transition: all 0.3s;
+                }
+
+                &:hover {
+                    background-color: #fff;
+
+                    svg path {
+                        fill: #000;
+                    }
+                }
+            }
+        }
+    }
+
+    &-feature {
+        &__title {
+            font-size: 36px;
+            line-height: 43px;
+            font-weight: 600;
+            margin-top: 75px;
+            margin-bottom: 35px;
+            max-width: 650px;
+        }
+
+        &__wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 220px);
+            gap: 17px;
+        }
+
+        &__block {
+            border-radius: 10px;
+            background: linear-gradient(168.55deg, rgba(81, 81, 81, 0.2) -4.52%, rgba(81, 81, 81, 0.2) 112.85%);
+            backdrop-filter: blur(15.7416px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-size: 19px;
+            line-height: 22px;
+            font-weight: 500;
+            text-align: center;
+            padding: 15px 10px;
+            min-height: 75px;
+            width: 100%;
+
+            span {
+                font-size: 13.5px;
+                line-height: 16px;
+                font-weight: 400;
+            }
+        }
+    }
+
+    &-form {
+        background: linear-gradient(168.55deg, rgba(81, 81, 81, 0.2) -4.52%, rgba(81, 81, 81, 0.2) 112.85%);
+        backdrop-filter: blur(15.7416px);
+        border-radius: 10px;
+        width: 100%;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+
+        &__input {
+            width: 100%;
+            height: 42px;
+            margin-bottom: 16px;
+            background: linear-gradient(168.55deg, rgba(81, 81, 81, 0.2) -4.52%, rgba(81, 81, 81, 0.2) 112.85%);
+            backdrop-filter: blur(15.7416px);
+            border-radius: 10px;
+            padding-left: 15px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 300;
+            font-style: italic;
+            border: none;
+            outline: none;
+
+            &.error {
+                border: 1px solid #ff3860;
+            }
+
+            &.success {
+                border: 1px solid #09c372;
+            }
+        }
+
+        &__btn {
+            height: 42px;
+            width: 100%;
+            border: none;
+            outline: none;
+            background: #BA1E09;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+            cursor: pointer;
+        }
+    }
+}
