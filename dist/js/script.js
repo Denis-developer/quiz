@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
             formInput = 0;
             validateInputs();
             if (formSuccess == formInput) {
-                formSendSuccess();
+                // formSendSuccess();
             }
         })
 
