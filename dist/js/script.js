@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let quizBlock = document.querySelectorAll('.main-quiz__block');
     let quizBlockAnswer = document.querySelectorAll('.main-quiz__answer');
     let quizQuizSuccess = document.querySelector('.main-quiz_success');
-    let quizBlockIndex = 0;
     let quizTransition = 600;
     let quizAnswer = [];
 
@@ -80,11 +79,6 @@ document.addEventListener('DOMContentLoaded', function () {
             return re.test(String(tel).toLowerCase());
         }
 
-        const isValidFullName = name => {
-            const re = /^[a-zA-Zа-яА-ЯёЁ'][a-zA-Z-а-яА-ЯёЁ' ]+[a-zA-Zа-яА-ЯёЁ']?$/;
-            return re.test(String(name));
-        }
-
         const isValidEmail = email => {
             const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(String(email).toLowerCase());
@@ -97,9 +91,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 formInput++;
                 const usernameValue = formFullName.value.trim();
                 if (usernameValue === "") {
-                    setError(formFullName);
-                }
-                else if (!isValidFullName(usernameValue)) {
                     setError(formFullName);
                 }
                 else {
