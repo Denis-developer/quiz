@@ -138,22 +138,21 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
         }
-    }
+        function formSendSuccess() {
+            for (let i = 0; i < quizBlock.length; i++) {
+                quizBlock[i].style.opacity = "0";;
+                setTimeout(function () {
+                    quizBlock[i].classList.remove('active');
+                    quizQuizSuccess.classList.add('active');
+                }, quizTransition);
 
-    function formSendSuccess() {
-        for (let i = 0; i < quizBlock.length; i++) {
-            quizBlock[i].style.opacity = "0";;
-            setTimeout(function () {
-                quizBlock[i].classList.remove('active');
-                quizQuizSuccess.classList.add('active');
-            }, quizTransition);
-
-            setTimeout(function () {
-                quizQuizSuccess.style.opacity = "1";
-            }, quizTransition + 10)
+                setTimeout(function () {
+                    quizQuizSuccess.style.opacity = "1";
+                }, quizTransition + 10)
+            }
+            textName.innerHTML = formFullName.value;
+            textEmail.innerHTML = formEmail.value;
         }
-        textName.innerHTML = formFullName.value;
-        textEmail.innerHTML = formEmail.value;
     }
 
 
