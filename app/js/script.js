@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    // Show/hide quiz block
     let quizBlock = document.querySelectorAll('.main-quiz__block');
     let quizBlockAnswer = document.querySelectorAll('.main-quiz__answer');
     let quizQuizSuccess = document.querySelector('.main-quiz_success');
@@ -28,19 +29,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     }
 
-    function formSendSuccess() {
-        for (let i = 0; i < quizBlock.length; i++) {
-            quizBlock[i].style.opacity = "0";;
-            setTimeout(function () {
-                quizBlock[i].classList.remove('active');
-                quizQuizSuccess.classList.add('active');
-            }, quizTransition);
-
-            setTimeout(function () {
-                quizQuizSuccess.style.opacity = "1";
-            }, quizTransition + 10)
-        }
-    }
 
     // Validate form
     const form = document.querySelectorAll('.form');
@@ -49,6 +37,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const formFullName = form[i].querySelector('.main-form__input[name="name"]'),
             formTel = form[i].querySelector('.main-form__input[name="tel"]'),
             formEmail = form[i].querySelector('.main-form__input[name="email"]');
+
+        const textName = document.querySelector('.main-quizSuccess__title span'),
+            textEmail = document.querySelector('.main-quizSuccess__text span');
 
         let formSuccess = 0;
         let formInput = 0;
@@ -59,7 +50,18 @@ document.addEventListener('DOMContentLoaded', function () {
             formInput = 0;
             validateInputs();
             if (formSuccess == formInput) {
-                // formSendSuccess();
+                var data = {
+                    'name': formFullName.value,
+                    'email': formEmail.value,
+                    'phone': formTel.value,
+                    'custom_array': quizAnswer
+                  };
+                $.ajax({
+                    type: "POST",
+                    url: "mailer/smart.php",
+                    data: data
+                }).done(formSendSuccess());
+                return false;
             }
         })
 
@@ -138,7 +140,21 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    function formSendSuccess() {
+        for (let i = 0; i < quizBlock.length; i++) {
+            quizBlock[i].style.opacity = "0";;
+            setTimeout(function () {
+                quizBlock[i].classList.remove('active');
+                quizQuizSuccess.classList.add('active');
+            }, quizTransition);
 
+            setTimeout(function () {
+                quizQuizSuccess.style.opacity = "1";
+            }, quizTransition + 10)
+        }
+        textName.innerHTML = formFullName.value;
+        textEmail.innerHTML = formEmail.value;
+    }
 
 
 })
