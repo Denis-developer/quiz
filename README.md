@@ -9,7 +9,6 @@
 - Javascript
 - Jquery (ajax)
 - Gulp
-- SCSS
 - Git
 
 ## Contacts
